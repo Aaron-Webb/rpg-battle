@@ -39,6 +39,28 @@ while game_on == True:
         
         elif index == 2:
             pass
+    
+
+    # Game over.. who won?       
+    
+    killed_players = 0
+    killed_enemies = 0
+
+    for player in players:
+        if player.get_hp() == 0:
+            killed_players += 1
+    
+    for enemy in enemies:
+        if enemy.get_hp() == 0:
+            killed_enemies += 1
+    
+    if killed_enemies == 3:
+        print("You win!")
+        game_on = False
+    elif killed_players == 3:
+        print("You lose!")
+        game_on = False
+
 
         
 
