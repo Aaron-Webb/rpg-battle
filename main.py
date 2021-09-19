@@ -33,6 +33,7 @@ while game_on == True:
             print("You attacked " + enemies[enemy].name + " for " + str(damage) + " damage points")
             if enemies[enemy].hp == 0:
                 print(enemies[enemy].name + " has died.")
+                del enemies[enemy]
             else:
                 print(enemies[enemy].name + " has " + str(enemies[enemy].hp) + " hp left.")
 

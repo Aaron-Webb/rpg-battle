@@ -47,7 +47,7 @@ class Person:
 
         for enemy in enemies:
             if enemy.get_hp() != 0:
-                print(enemy.name)
+                print(str(i) + "." + enemy.name)
                 i += 1    
         choice = int(input("Choose enemy: ")) - 1        
         return choice
