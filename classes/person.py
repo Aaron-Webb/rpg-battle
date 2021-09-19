@@ -1,4 +1,4 @@
-from math import hypot
+from math import random
 import random
 
 class Person:

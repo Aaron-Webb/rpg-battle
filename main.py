@@ -1,6 +1,6 @@
 from classes.person import Person
 
-# create 3 pla
+# create 3 players
 player1 = Person("Cloud", 100, 90, 25, 60,)
 player2 = Person("Zidane", 100, 90, 25, 60)
 player3 = Person("Squall", 100, 90, 25, 60)
