@@ -17,19 +17,24 @@ game_on = True
 while game_on == True:
 
     for player in players:
+        player.choose_action()
         player_choice = input("Please choose an action: ")
         index = int(player_choice) - 1
 
         # index 0 ("Attack") is a generic attack that gives damage
         if index == 0:
-            # player gives damage to enemy
-            damage = player.give_damage()
+            # player choose the enemy
             enemy = player.choose_enemy(enemies)
+            # player gives damage to enemy
+            damage = player.give_damage() 
             # enemy takes damage from player
             enemies[enemy].take_damage(damage)
             # inform player how much damage has been deal and the enemies current hp
             print("You attacked " + enemies[enemy].name + " for " + str(damage) + " damage points")
-            print(enemies[enemy].name + " has " + str(enemies[enemy].hp) + " hp left.")
+            if enemies[enemy].hp == 0:
+                print(enemies[enemy].name + " has died.")
+            else:
+                print(enemies[enemy].name + " has " + str(enemies[enemy].hp) + " hp left.")
 
 
         

@@ -47,9 +47,17 @@ class Person:
 
         for enemy in enemies:
             if enemy.get_hp() != 0:
-                i += 1
-        choice = int(input("Choose enemy: ")) - 1
+                print(enemy.name)
+                i += 1    
+        choice = int(input("Choose enemy: ")) - 1        
         return choice
 
-    
+
+    def choose_action(self):
+        i = 1
+        print(self.name, "- It is your turn to attack")
+        print("actions: " )
+        for item in self.actions:
+            print(str(i), item)
+            i += 1
 
