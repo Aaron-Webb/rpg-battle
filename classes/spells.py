@@ -1,6 +1,6 @@
-from math import random
+import random
 
-class Spells:
+class Spell:
 
     def __init__(self, name, type, spell_damage, mp_cost):
         self.name = name
