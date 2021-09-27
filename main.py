@@ -10,9 +10,9 @@ lightning  = Spell("Lightning", "Black", 120, 10)
 
 player_spells = [fire, ice, earth, lightning]
 
-bad_Breath = Spell("Bad Breath", 120, 10)
-death_sentence = Spell("Death Sentence", 120, 10)
-shadow_flare = Spell("Shadow Flare", 120, 10)
+bad_breath = Spell("Bad Breath", "black", 120, 10)
+death_sentence = Spell("Death Sentence", "black", 120, 10)
+shadow_flare = Spell("Shadow Flare", "black", 120, 10)
 
 enemy_spells = [bad_breath, death_sentence, shadow_flare]
 
@@ -33,6 +33,8 @@ enemy3 = Person("Aeon", 100, 90, 25, 60, enemy_spells)
 
 players = [player1, player2, player3]
 enemies = [enemy1, enemy2, enemy3]
+defeated_enemies = []
+defeated_players = []
 
 game_on = True
 
@@ -55,34 +57,51 @@ while game_on == True:
             enemies[enemy].take_damage(damage)
             # inform player how much damage has been deal and the enemies current hp
             print("You attacked " + enemies[enemy].name + " for " + str(damage) + " damage points")
-            if enemies[enemy].hp == 0:
+            if enemies[enemy].get_hp() == 0:
                 print(enemies[enemy].name + " has died.")
                 del enemies[enemy]
-            else:
-                print(enemies[enemy].name + " has " + str(enemies[enemy].hp) + " hp left.")
 
 
         
         elif index == 1:
-            pass
             
+            # player chooses a spell
+            player.choose_magic()
+
+            spell_choice = int(input(" Choose your spell: ")) - 1
+
+            if spell_choice == -1:
+                continue
+
+            spell = player.magic[spell_choice]
+            spell_damage = spell.give_spell_damage()
+           
+            enemy = player.choose_enemy(enemies)
+
+            enemies[enemy].take_damage(spell_damage)
+            print("You attacked " + enemies[enemy].name + " with " + spell.name +  " for " + str(spell_damage) + " damage points")
+            if enemies[enemy].get_hp() == 0:
+                print(enemies[enemy].name + " has died.")
+                defeated_enemies.append(enemies[enemy])
+                del enemies[enemy]
+                
+
 
 
         
         elif index == 2:
             pass
     
-
     # Game over.. who won?       
     
     killed_players = 0
     killed_enemies = 0
 
-    for player in players:
+    for player in defeated_players:
         if player.get_hp() == 0:
             killed_players += 1
     
-    for enemy in enemies:
+    for enemy in defeated_enemies:
         if enemy.get_hp() == 0:
             killed_enemies += 1
     

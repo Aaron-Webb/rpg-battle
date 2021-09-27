@@ -1,5 +1,4 @@
 import random
-import random
 
 class Person:
 
@@ -65,5 +64,5 @@ class Person:
     def choose_magic(self):
         i = 1
         for spell in self.magic:
-            print(str(i) + spell.name + " - cost: " + str(spell.cost))
+            print(str(i) + spell.name + " - cost: " + str(spell.mp_cost))
             i += 1
