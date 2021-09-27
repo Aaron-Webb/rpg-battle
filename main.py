@@ -1,6 +1,21 @@
 from classes.person import Person
 from classes.spells import Spell
 
+
+
+fire = Spell("Fire", "Black", 120, 10)
+ice = Spell("Ice", "Black", 120, 10)
+earth = Spell("Earth", "Black", 120, 10)
+lightning  = Spell("Lightning", "Black", 120, 10)
+
+player_spells = [fire, ice, earth, lightning]
+
+bad_Breath = Spell("Bad Breath", 120, 10)
+death_sentence = Spell("Death Sentence", 120, 10)
+shadow_flare = Spell("Shadow Flare", 120, 10)
+
+enemy_spells = [bad_breath, death_sentence, shadow_flare]
+
 # create 3 players
 player1 = Person("Cloud", 100, 90, 25, 60, player_spells)
 player2 = Person("Zidane", 100, 90, 25, 60, player_spells)
@@ -11,10 +26,7 @@ enemy2 = Person("Ultimecia", 100, 90, 25, 60, enemy_spells)
 enemy3 = Person("Aeon", 100, 90, 25, 60, enemy_spells)
 
 
-fire = Spell("Fire", "Black", 120, 10)
-ice = Spell("Ice", "Black", 120, 10)
-earth = Spell("Earth", "Black", 120, 10)
-lightning  = Spell("Lightning", "Black", 120, 10)
+
 
 
 # name, type, spell_damage, mp_cost
