@@ -1,4 +1,4 @@
-A person python project created in order to put into practice the use of classes.
+A personal python project created in order to put into practice the use of classes.
 
 A final fantasy style turned based rpg that runs in the command line.
 
